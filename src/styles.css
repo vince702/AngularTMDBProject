@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+.carousel-control-prev-icon{
+  z-index:100 !important;
+}
+
+ .carousel-control-next-icon{
+  z-index:100 !important;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+
+
+
+
+.my-custom-class .tooltip-inner {
+  background-color: white !important;
+  color:black;
+  font-size: 125%;
+
+  border:1px !important;
+  border-radius: 1px;
+  box-shadow: 0 0 6px #00000040;
+  opacity: 100 !important;
+}
+.my-custom-class .arrow::before {
+  border-top-color: white;
+  border-bottom-color: #f00!important;
+
+}

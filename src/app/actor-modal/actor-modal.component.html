@@ -1,0 +1,95 @@
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"><span aria-hidden="false">&times;</span>
+    </button>
+  </div>
+
+
+  <div class="modal-body" style="color:black; display:inline-block">
+
+
+
+    <div class="row flex-row flex-nowrap" style="min-width:500px">
+      <div class="col" style="width:40%">
+        <img  src={{profile_path}}  style="width:100%">
+      </div>
+      <div class="col-8">
+        <div style="padding-right:2%">
+
+          <br>
+          Birthday: {{birthday}}
+          <br>
+          Gender: {{gender}}<br>
+
+          <div *ngIf="homepage!=''">
+            <a href={{homepage}} target=blank>Website</a>
+          </div>
+          Known For: {{known_for_department}} <br>
+
+          <div *ngIf="also_known_as!=''">
+            Also Known As: {{also_known_as}}
+          </div>
+
+
+          <div style="padding-top:6%"></div>
+          <span *ngIf="imdb!=''">
+            <a ngbTooltip="Visit IMDB" tooltipClass="my-custom-class" target=blank href={{imdb}}><img width=25 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEXmuR7////ktAD//vnmuBTryF315Lby2pn///3nuyj47Mnqxlnu0Hn++/DqxFD257zltwDtznP36sby3J/368zv1In579TqxVP9+Or9+/Psy2jjsADx2JTnuyb36ML15Lfpwkf6897u0YH04KnovznpwkD04a389uPszGxEsAu8AAAGdklEQVR4nO2d6XazKhhGEWmGNrUk1kxfJtN0uP8rPE6pyqtZQuTEsp79oysFo+4Aokwyr2Q5fpqyv8/0affsl1bs+sHfMS7Fo8+uF4TkMtqohiGXjz6xXuE8rBluAv7oU+odHvil4Zq5kT3rCPZ6Ndw4KZgo7v3CMHBTMFFc5YZj98rgFf6RGm7cFWRM+onhzNU8miJ3HvPdqgdV9h47uJxJk5K4ZJHLmTQxDJmzVUWOmDMXniZu8fnoE7CO6ykIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAMSWgLr0S2x4vWSC5FQqdz6HUuoRwdRzWOo9xi1MjbpfieeGuOP6VnJ3dHNeIrHEfn7emyl3Rhjr2yr2OvE0L5xFOY5DNq1eCCeX5w8dkS/5TG8/eW2ITX5WgueU1hqm7T66Re7qu79/PdE/OccZ7CYn7T8LndMFdYVR2I4dsjDYuDy+guQ89bVBaxGJZhXBiO7jT0JmUyDstwk+fSVofOhp63uqbisAy9fMot/77f0L+ew8AM84nvknxN39Bb8EEankXjSZkYeicxRMMwLYgi6MXwyIdomNXGrdWhnmFx2RqYYVZd8HEvhkU2HZhhFt1aHbYaRrPdgm49G6Khl31rqWu4Sh4uaOHNCvXgDF/Ejeqw1TD71kEN/RqkYZqzeFvkTUN6M5urDM3wI/ndhZGh2Kqh74M0TA6fLZFmYPikhsa3DIXknMvszz1PxPqGyVmJmZnhi4ah4Kfxcp38M/leRBdu7qhvmFTTsrU6vG1Ikv671ZDP19WQ5ck44+obJtUFf7NuSKqj0FTRwDAQ7dXhbUNSIa6bDY/ile75y1DRwPAseMMJ9Gm4aNz/2WxZPQPDUIryS2slshfDZiZmidjVsGKy4JfyH9VFz/BVx9Aza0btalhpAY155ar/9T8aPhslYlfDRZmIE34uw9UbMZuGG6OC2NmwcvlkYflZvRGzaTgxEexuWHkiPJXV4aslw2g6/VEvYp53MSmInQ0rtzHzMj2XP1YM0xLHafCnTcPnisq4/HXf7BhmvSOcJOLJpuH7qfz8VsaFdgyzJkt652S0SGlnQ1l+3pRxM7XRrR/DbbYX0rCzsmr4r7GVO7BjmKnQ+/sXu4Zxk+FUfVLsxzDLjpw06D3ZNSTNSNm2Fg1pk6Vlw1DdMGH9zyHD6q3aL88upWFDe276VOqS4b7BMHLKUG7ULT3vxylDHlPDi1uGDQ1skrSc/mVDSauLNXfKsKGhe+mYIWmT945uGTZ0OIVulcOGTefCMcNY3XSlaUj6LYZmSJ4uprSfTa93bWCGpLqYNPQk6vWQtrXqP+pKo9o09ZXeNFQbdQZnqF4onjUN6UiFlv7D4hmflArbhuRMPqSmIbkraunlLtppSB+bdUP16SLSNKSNZ5qGdlui0lbomNjoGAraXLe82ZpIHtfstpdyWjCmrLthwPmeDmxrGTGUtwhL0klrtc07Hc+rlKOJ0DA8HJv6/j+aR315u2x4IAm22zPDic6aBumOvty1GGYDak5qqOXeNU7uK5f3G2blrcHQn/KGJ27LPaQ036QTpO40vLQYJrn6QHsRYru93NnQ4NrVbXx3Gua3pZ37gM2mQ+kZxtWguc6VppGvlnHeLZi9S1XPsFY0grsNixfCdTU0qiw0y2GtukiPd5dhKLUMl3ZHDGWGNR+fhGgaXqfMUEP/o2l7o1787ob5NItqdRHfaTj6TRJiGP9raJudGb4tVsuQ7SdKiLHh97bMc8TwQ3LyGHI2Hn1JD57vSgnMs1T198juuFoMb8ySTZjEX0/VQb/EMLkR4C+1kRjrlfH7fuVurJDfSbF6YJjP/RBRGZI9yoggrG+XvRFUzOqhv0Sz+TYQ6sDtvbp1tg8+O1yr3+XsjlHQLB0pXqP4sZTQ4ghCDRHKdmSz+r6bJ6yrm113Ii/bKDoH7B6/gZP8HrJlDj8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICHsmeXR5+CZS7MaOmav4PYsp3xHNM/gRyzd+P30PwJ+DubOJ5LPZYu6eQuPEoMX13OptxPDF1OxHR1gnT5AKM1lv4C2XqTqeG633eyDwbB/MLQi51UFCxbty5f5GJ9ca8s8iBfWaJYxmNydmz5Bfn7TtvfhUrWc8kdWYVBCC7PvytzVZZi8Q9RsH/02fXAPogOlcVy/gOvX3kr2NVnZQAAAABJRU5ErkJggg=="></a>
+            &nbsp;
+          </span>
+          <span *ngIf="instagram!=''">
+            <a ngbTooltip="Visit Instagram" tooltipClass="my-custom-class" target=blank href={{instagram}}><img width=25 src="https://image.flaticon.com/icons/png/512/174/174855.png"></a>
+            &nbsp;
+          </span>
+          <span *ngIf="facebook!=''">
+            <a ngbTooltip="Visit Facebook" tooltipClass="my-custom-class" target=blank href={{facebook}}><img width=25 src="https://befc.com.au/wp-content/uploads/2019/07/2-21918_download-transparent-background-facebook-logo-clipart-facebook-logo.jpg"></a>
+            &nbsp;
+          </span>
+
+          <span *ngIf="twitter!=''">
+            <a ngbTooltip="Visit Twitter" tooltipClass="my-custom-class" target=blank href={{twitter}}><img width=25 src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Twitter_NEW.png"></a>
+          </span>
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class = "col">
+        <h4><br> Biography <br></h4>
+      {{biography}}
+      <br><br>
+      </div>
+
+    </div>
+
+  </div>
+
+</ng-template>
+
+
+
+<div class="card" style="cursor: pointer;background:#00003f;border-radius:30px;min-height:25rem;overflow: hidden;width: 11rem;" (click)="open(content)">
+
+   <img class="card-img-top"  style = "z-index:2;padding:0px;position: absolute;left:-1px;top:-1px;width:12.3rem; " src={{profile_path}}>
+
+  <div class="card-body" style="text-align:center;color:black;padding-bottom:100px;background:lightgray;z-index:0;position:absolute;left:-20px;top:17.5rem;width:120%;font-size:12px;">
+
+    <div class=""> <b>{{name}}</b></div>
+
+      <b>AS </b><br> {{character}}
+  </div>
+
+
+</div>
+
+
+<hr>
+
+

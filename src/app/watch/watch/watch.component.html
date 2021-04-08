@@ -1,0 +1,199 @@
+
+<br>
+<br>
+
+<br>
+
+
+<div style="padding-top:3%;padding-left:7%;padding-right:7%">
+
+
+  <div class="container" style="color:white">
+    <div class="row">
+      <h2 style="color:white"> Watch</h2>
+      <br>
+    </div>
+
+    <div class="row">
+      <br>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+
+
+        <div *ngIf="video_id != ''">
+        <youtube-player
+    videoId={{video_id}}
+    suggestedQuality="highres"
+    [height]="400"
+    [width]="700"
+  >
+  </youtube-player>
+
+</div>
+
+
+      </div>
+      <div class="col">
+        <div>
+          <h1 style="font-size:50px">{{title}}</h1>
+          <p style="font: size 20px;"><i>{{tagline}}</i></p>
+          <p style="font-size:25px">{{release_date}} | {{vote_average}} | {{runtime}} </p>
+          <p><b>Genres:</b> {{genres}}</p>
+          <p><b>Spoken Languages:</b> {{spoken_languages}} </p>
+
+          <p>
+            <button class="btn btn-primary" (click)="changeSuccessMessage()">{{buttontext}}</button>
+          </p>
+          <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
+          </ngb-alert>
+
+          </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <br>
+    </div>
+    <div class="row" style="padding-left:1%">
+
+        <h4>Details</h4>
+
+
+    </div>
+    <div class="row" style="padding-left:1%">
+
+      {{overview}}
+      <br><br>
+    </div>
+    <div class="row" style="padding:1%">
+      <br><br>
+        <h4>Share</h4>
+    </div>
+    <div class="row">
+      <br><br>
+        <h2>Cast</h2>
+    </div>
+    <div class="row">
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="FixedHeightContainer">
+
+        <div class="Content">
+
+
+          <div class="container" style="color:white">
+            <div class="row flex-row flex-nowrap">
+
+
+              <div style="padding-right:14px" *ngFor="let person of cast;index as i">
+
+                <app-actor-modal   character='{{person["character"]}}'  id='{{person["id"]}}'  profile_path='{{person["profile_path"]}}' name='{{person["name"]}}' > </app-actor-modal>
+
+              </div>
+
+
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+<br><br>
+    </div>
+
+    <div class="reviews" >
+      <div class="row">
+        <br><br>
+          <h2 style="color:white">Reviews<br></h2>
+
+
+
+
+
+      </div>
+
+      <div *ngFor="let review of reviews;index as i">
+        <br>
+      <div class="card" style="padding-right:3%;padding-top:3%;padding-bottom:3%;color:black" >
+
+
+        <div class="row">
+          <div class="col">
+            <img style="position:absolute; left:30px;width:60%" src="{{reviews[i]['avatar_path']}}">
+          </div>
+          <div class="col-10">
+
+              <h5> A review created by {{reviews[i]['author']}}</h5>
+              <br>
+              <div style="color:gray">
+                written by {{reviews[i]['author']}} on {{reviews[i]['created_at']}}
+              </div>
+              <br>
+
+              <div class="text" >{{reviews[i]['content']}}</div>
+              <br>
+            <a href='{{reviews[i]["url"]}}' target=blank> <u>read the rest</u></a>
+            <br>
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+      <br>
+      </div>
+
+
+
+
+
+
+  </div>
+
+  <br><br>
+  <div class="row">
+    <br>
+      <h2 style="color:white">Recommended<br></h2>
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+  <app-multi name='{{recommended}}'></app-multi>
+
+
+
+
+
+  <br>
+  <br>
+
+
+
+
+
+
+  <br>
+</div>
+
+
+

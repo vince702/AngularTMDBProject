@@ -1,0 +1,15 @@
+<ng-template #rt let-r="result" let-t="term">
+
+  <a  routerLink="/watch/{{r['Media_type']}}/{{r['id']}}">
+
+  <div  style="left:-10px;background:#00003f; color:white; max-width:430px" >
+
+  <img [src]="r['backdrop_path']" class="mr-1" style="width: 100px;height:50px">
+  <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+
+ </div>
+</a>
+</ng-template>
+
+<input placeholder="Search" style="color:gray;border:0px;border-bottom:solid 2px gray;background:black" id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt"
+  [inputFormatter]="formatter" />

@@ -1,0 +1,20 @@
+input:focus {
+    outline: none !important;
+}
+.form-control:focus {
+  outline: none !important;
+
+
+}
+
+ng-template:focus {
+  outline: none !important;
+
+}
+
+.searchitem {
+  padding:100px;
+}
+.searchitem:hover {
+background:blue !important;
+}

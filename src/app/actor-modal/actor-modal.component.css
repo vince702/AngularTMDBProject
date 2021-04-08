@@ -1,0 +1,18 @@
+card:focus {
+  outline:0 !important;
+}
+
+
+button:focus {outline:0;}
+:focus {outline:0 !important;}
+
+
+
+.my-custom-class .tooltip-inner {
+  background-color: white !important;
+  color:darkgray;
+  font-size: 125%;
+}
+.my-custom-class .arrow::before {
+  border-top-color: white;
+}
