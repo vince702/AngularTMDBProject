@@ -12,9 +12,5 @@ ng-template:focus {
 
 }
 
-.searchitem {
-  padding:100px;
-}
-.searchitem:hover {
-background:blue !important;
-}
+
+

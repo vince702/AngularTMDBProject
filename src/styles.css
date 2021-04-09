@@ -10,8 +10,19 @@
 .tooltip.show {
   opacity: 1;
 }
+.searchlink{
+  position:relative;
+  padding:3%
 
 
+}
+
+
+.searchlink:hover{
+  background:#0080ff !important;
+
+
+}
 
 
 
@@ -29,4 +40,23 @@
   border-top-color: white;
   border-bottom-color: #f00!important;
 
+}
+
+
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  height: 10px;
 }

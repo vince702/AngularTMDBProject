@@ -1,8 +1,8 @@
-<ng-template #rt let-r="result" let-t="term">
+<ng-template class ="menuitem " #rt let-r="result" let-t="term">
 
-  <a  routerLink="/watch/{{r['Media_type']}}/{{r['id']}}">
+  <a   routerLink="/watch/{{r['Media_type']}}/{{r['id']}}">
 
-  <div  style="left:-10px;background:#00003f; color:white; max-width:430px" >
+  <div class="searchlink" style="background:#00003f; color:white; max-width:430px" >
 
   <img [src]="r['backdrop_path']" class="mr-1" style="width: 100px;height:50px">
   <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>

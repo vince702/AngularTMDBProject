@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  selector: 'app-my-list',
+  templateUrl: './my-list.component.html',
+  styleUrls: ['./my-list.component.css']
 })
-export class HomepageComponent implements OnInit {
-  watching:any;
+export class MyListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+  watching:any;
+  poster_path:any;
+  title:any;
+
 
   ngOnInit(): void {
-    //localStorage.clear();
+
 
     try {
       var watching = localStorage.getItem('watching');
@@ -38,11 +42,18 @@ export class HomepageComponent implements OnInit {
 
 
 
+
+
+
+      //this.watching=this.watching[0]['id']
+
   }
   catch(error){
     this.watching = "kk"
 
   }
-  }
+}
+
+
 
 }

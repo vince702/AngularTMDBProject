@@ -20,6 +20,8 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { YouTubePlayer } from '@angular/youtube-player';
 import { ActorModalComponent } from './actor-modal/actor-modal.component';
 import { SearchComponent } from './search/search.component';
+import { MyListComponent } from './my-list/my-list.component';
+import { MediaCardComponent } from './media-card/media-card.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { SearchComponent } from './search/search.component';
     HomepageComponent,
     WatchComponent,
     ActorModalComponent,
-    SearchComponent
+    SearchComponent,
+    MyListComponent,
+    MediaCardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,7 @@ import { SearchComponent } from './search/search.component';
     RouterModule.forRoot([
       {path: 'home', component: HomepageComponent },
       {path: '', component: HomepageComponent },
-      {path: 'mylist', component: CarouselBasicComponent },
+      {path: 'mylist', component: MyListComponent },
       {path: 'watch/:type/:id', component: WatchComponent },
 
 

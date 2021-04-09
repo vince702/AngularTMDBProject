@@ -1,6 +1,12 @@
 <app-carousel-basic style="width:100%; height:100%; object-fit: cover;" ></app-carousel-basic>
 
+<div *ngIf="watching[0]">
 
+  <div style="padding-left:7%; padding-top:1%; color:white;"><h2 ><p>Continue Watching</p></h2></div>
+  <app-multi name='ContinueWatching'></app-multi>
+
+
+</div>
 <div style="padding-left:7%; padding-top:1%; color:white;"><h2 ><p>Popular Movies</p></h2></div>
 <app-multi name='popular' ></app-multi>
 

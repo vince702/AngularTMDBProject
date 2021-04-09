@@ -23,10 +23,100 @@ export class MultiComponent implements OnInit {
 
   images : any[][];
   titles : any[][];
+  types: any[][];
   ids : any[][]
   type:string;
+  watching:any;
 
   ngOnInit(): void {
+
+    if (this.name.includes("ContinueWatching")){
+
+      try {
+        var watching = localStorage.getItem('viewed');
+        console.log("VIEWED")
+        console.log(watching)
+        this.watching=String(watching).split('^')
+        this.watching = this.watching.slice(1);
+        this.watching = '[' +  this.watching + ']';
+        if (this.watching == ''){
+          this.watching = 'kk';
+        }
+        this.watching=eval(this.watching);
+
+        this.watching.reverse();
+        var titles = []
+        var images = [];
+        var ids = [];
+        var types = [];
+
+        for (var i = 0; i < this.watching.length; i++){
+          images.push(this.watching[i]['poster_path'])
+          titles.push(this.watching[i]['title'])
+          ids.push(this.watching[i]['id'])
+          types.push(this.watching[i]['type'])
+
+
+
+
+        //console.log(this.watching)
+
+
+        }
+        const newArr = [];
+        while(images.length) newArr.push(images.splice(0,6));
+        for (var k = newArr[newArr.length-1].length; k < 6; k++ ){
+          newArr[newArr.length-1].push('')
+        }
+        const newArr1 = [];
+        while(titles.length) newArr1.push(titles.splice(0,6));
+        for (var k = newArr1[newArr1.length-1].length; k < 6; k++ ){
+          newArr1[newArr1.length-1].push('')
+        }
+
+        const newArr2 = [];
+        while(ids.length) newArr2.push(ids.splice(0,6));
+        for (var k = newArr2[newArr2.length-1].length; k < 6; k++ ){
+          newArr2[newArr2.length-1].push('')
+        }
+
+        const newArr3 = [];
+        while(types.length) newArr3.push(types.splice(0,6));
+        for (var k = newArr3[newArr3.length-1].length; k < 6; k++ ){
+          newArr3[newArr3.length-1].push('')
+        }
+
+        //this.ids = newArr2
+        this.ids = newArr2
+        this.types = newArr3
+        this.titles = newArr1
+        this.images = newArr
+
+
+
+        return;
+
+
+        //this.watching=this.watching[0]['id']
+
+    }
+    catch(error){
+      this.watching = "kk"
+
+    }
+
+      return;
+    }
+
+
+
+
+
+
+
+
+
+
 
     if (this.name.includes('tv')){
       this.type = 'tv';
@@ -130,6 +220,10 @@ export class MultiComponent implements OnInit {
   }
 
   ngOnChanges() {
+
+    if (this.name.includes("ContinueWatching")){
+      return;
+    }
 
     console.log(name)
     if (this.name.includes('tv')){

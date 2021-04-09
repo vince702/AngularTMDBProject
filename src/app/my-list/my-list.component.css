@@ -1,0 +1,16 @@
+.card-body{
+  visibility:hidden;
+}
+
+.card:hover .card-body{
+  visibility:visible;
+}
+.card{
+  transition-duration: .3s;
+
+}
+
+.card:hover {
+  transition-duration: .3s;
+  transform: scale(1.1);
+}

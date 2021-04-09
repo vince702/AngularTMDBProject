@@ -2,10 +2,13 @@
 <br>
 <br>
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="Qhxk04FS"></script>
+
 <br>
 
 
-<div style="padding-top:3%;padding-left:7%;padding-right:7%">
+<div style="padding-top:3%;padding-left:2%;padding-right:2%">
 
 
   <div class="container" style="color:white">
@@ -40,14 +43,14 @@
         <div>
           <h1 style="font-size:50px">{{title}}</h1>
           <p style="font: size 20px;"><i>{{tagline}}</i></p>
-          <p style="font-size:25px">{{release_date}} | {{vote_average}} | {{runtime}} </p>
+          <p style="font-size:25px">{{release_date}} | 	&#9733; {{vote_average}} | {{runtime}} </p>
           <p><b>Genres:</b> {{genres}}</p>
           <p><b>Spoken Languages:</b> {{spoken_languages}} </p>
 
           <p>
             <button class="btn btn-primary" (click)="changeSuccessMessage()">{{buttontext}}</button>
           </p>
-          <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
+          <ngb-alert #selfClosingAlert *ngIf="successMessage" type={{messagetype}} (closed)="successMessage = ''">{{ successMessage }}
           </ngb-alert>
 
           </div>
@@ -72,7 +75,33 @@
     <div class="row" style="padding:1%">
       <br><br>
         <h4>Share</h4>
+
+
+
+
     </div>
+    <div class="row">
+      &nbsp;&nbsp;&nbsp;
+
+        <a target=blank class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text=Watch {{title}} %0A{{video_url}} %0A %23USC %23CSCI571 %23FightOn">
+
+  <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png" width=25px>
+</a> &nbsp;&nbsp;&nbsp;
+
+<div class="fb-share-button" data-href="https://www.youtube.com/" data-layout="button_count" data-size="small">
+
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{video_url}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+        <img src="https://www.freepnglogos.com/uploads/facebook-logo-icon/facebook-logo-icon-file-facebook-icon-svg-wikimedia-commons-4.png" width=25px>
+
+        </a>
+        <br><br>
+
+      </div>
+
+
+    </div>
+
     <div class="row">
       <br><br>
         <h2>Cast</h2>
@@ -167,25 +196,46 @@
   <br><br>
   <div class="row">
     <br>
-      <h2 style="color:white">Recommended<br></h2>
-
-
+    <div *ngIf="type=='tv'">
+      <h2 style="color:white">Recommended TV Shows<br></h2>
+    </div>
+    <div *ngIf="type=='movie'">
+      <h2 style="color:white">Recommended Movies<br></h2>
+    </div>
 
 
 
   </div>
-
-  </div>
-
-
   <app-multi name='{{recommended}}'></app-multi>
 
+  <div class="row">    <div *ngIf="type=='tv'">
+    <h2 style="color:white">Similar TV Shows<br></h2>
+  </div>
+  <div *ngIf="type=='movie'">
+    <h2 style="color:white">Similar Movies<br></h2>
+  </div>
+
+  </div>
+
+  <app-multi name='{{similar}}'></app-multi>
+
+
+
+
+  </div>
+
 
 
 
 
   <br>
   <br>
+
+    <br>
+
+
+
+
 
 
 

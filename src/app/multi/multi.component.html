@@ -11,15 +11,65 @@
 
 
 
-            <a routerLink="/watch/{{type}}/{{ids[i][j]}}"  rel="nofollow noopener noreferrer">
-              <div class="card">
 
-                <img  style="width:100%" [src]="k" >
-                <p class="card-title" >{{titles[i][j]}} <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
-              </div>
+            <div *ngIf="types">
 
-        </a>
+
+              <div *ngIf="types[i][j] =='tv'">
+              <a routerLink="/watch/{{types[i][j]}}/{{ids[i][j]}}"  rel="nofollow noopener noreferrer">
+                <div class="card">
+
+                  <img  style="width:100%" [src]="k" >
+                  <p class="card-title" >{{titles[i][j]}} <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+                </div>
+          </a>
+        </div>
+
+        <div *ngIf="types[i][j] ==''">
+          <a routerLink="/watch/movie/{{ids[i][j]}}"  rel="nofollow noopener noreferrer">
+            <div class="card">
+
+              <img  style="width:100%" [src]="k" >
+              <p class="card-title" >{{titles[i][j]}} <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+            </div>
+      </a>
+    </div>
+
+
+
+            </div>
+
+            <div *ngIf="!types">
+              <a routerLink="/watch/{{type}}/{{ids[i][j]}}"  rel="nofollow noopener noreferrer">
+                <div class="card">
+
+                  <img  style="width:100%" [src]="k" >
+                  <p class="card-title" >{{titles[i][j]}} <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+                </div>
+
+          </a>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
